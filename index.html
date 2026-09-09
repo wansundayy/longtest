@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>เครื่องคิดเลขเลขโรมัน</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=VT323&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <h1 class="title">เครื่องคิดเลขเลขโรมัน</h1>
+
+    <div class="mode-toggle" role="group" aria-label="เลือกชุดตัวเลข">
+      <button type="button" class="mode-btn active" id="modeArabic" data-mode="arabic">เลขอารบิก</button>
+      <button type="button" class="mode-btn" id="modeRoman" data-mode="roman">เลขโรมัน</button>
+    </div>
+
+    <section class="calculator">
+      <div class="display">
+        <div class="expression" id="expression">&nbsp;</div>
+        <div class="current" id="current">0</div>
+      </div>
+
+      <div class="message" id="message">&nbsp;</div>
+
+      <div class="keypad">
+        <div class="numerals" id="numeralsArabic">
+          <button type="button" class="key key-num" data-digit="7">7</button>
+          <button type="button" class="key key-num" data-digit="8">8</button>
+          <button type="button" class="key key-num" data-digit="9">9</button>
+          <button type="button" class="key key-num" data-digit="4">4</button>
+          <button type="button" class="key key-num" data-digit="5">5</button>
+          <button type="button" class="key key-num" data-digit="6">6</button>
+          <button type="button" class="key key-num" data-digit="1">1</button>
+          <button type="button" class="key key-num" data-digit="2">2</button>
+          <button type="button" class="key key-num" data-digit="3">3</button>
+          <button type="button" class="key key-num key-zero" data-digit="0">0</button>
+        </div>
+
+        <div class="numerals" id="numeralsRoman" hidden>
+          <button type="button" class="key key-num" data-letter="I">I</button>
+          <button type="button" class="key key-num" data-letter="V">V</button>
+          <button type="button" class="key key-num" data-letter="X">X</button>
+          <button type="button" class="key key-num" data-letter="L">L</button>
+          <button type="button" class="key key-num" data-letter="C">C</button>
+        </div>
+
+        <div class="controls">
+          <button type="button" class="key key-clear" id="btnClear">AC</button>
+          <button type="button" class="key key-clear" id="btnBack">⌫</button>
+        </div>
+
+        <div class="operators">
+          <button type="button" class="key key-op" data-op="÷">÷</button>
+          <button type="button" class="key key-op" data-op="×">×</button>
+          <button type="button" class="key key-op" data-op="−">−</button>
+          <button type="button" class="key key-op" data-op="+">+</button>
+        </div>
+
+        <button type="button" class="key key-eq" id="btnEquals">=</button>
+      </div>
+    </section>
+
+    <p class="hint">รองรับตัวเลข 1–100 เท่านั้น</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

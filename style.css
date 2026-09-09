@@ -1,0 +1,250 @@
+:root {
+  --page-bg: #f4ecdd;
+  --page-text: #3b2417;
+
+  --calc-body: #e07a4f;
+  --calc-body-dark: #b85a34;
+  --calc-border: #7a3b1d;
+
+  --display-bg: #eef0d9;
+  --display-text: #33422e;
+  --display-sub: #6b7a63;
+
+  --btn-num-bg: #fff6e9;
+  --btn-num-text: #3b2417;
+  --btn-num-shadow: #caa77e;
+
+  --btn-op-bg: #2f6f6a;
+  --btn-op-text: #fdf6ec;
+  --btn-op-shadow: #1d4744;
+
+  --btn-eq-bg: #d1495b;
+  --btn-eq-text: #fff6e9;
+  --btn-eq-shadow: #8f2635;
+
+  --btn-clear-bg: #cfc3ab;
+  --btn-clear-text: #3b2417;
+  --btn-clear-shadow: #9b8f79;
+
+  --error-color: #8f2635;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--page-bg);
+  color: var(--page-text);
+  font-family: "Kanit", "Tahoma", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: clamp(16px, 4vw, 40px) 16px 48px;
+}
+
+.app {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.title {
+  font-size: clamp(1.25rem, 4vw, 1.6rem);
+  font-weight: 700;
+  margin: 4px 0 0;
+  text-align: center;
+}
+
+.mode-toggle {
+  display: flex;
+  width: 100%;
+  background: var(--btn-num-bg);
+  border: 2px solid var(--calc-border);
+  border-radius: 999px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.mode-btn {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--page-text);
+  font-family: inherit;
+  font-size: clamp(0.85rem, 2.6vw, 1rem);
+  font-weight: 600;
+  padding: 10px 8px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.mode-btn.active {
+  background: var(--btn-op-bg);
+  color: var(--btn-op-text);
+}
+
+.calculator {
+  width: 100%;
+  background: var(--calc-body);
+  border: 3px solid var(--calc-border);
+  border-radius: 22px;
+  padding: 16px;
+  box-shadow: 0 10px 0 var(--calc-body-dark), 0 14px 18px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.display {
+  background: var(--display-bg);
+  border: 2px solid var(--calc-border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  text-align: right;
+  min-height: 84px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.expression {
+  font-family: "VT323", monospace;
+  font-size: 1.1rem;
+  color: var(--display-sub);
+  min-height: 1.2em;
+  letter-spacing: 1px;
+  word-break: break-all;
+}
+
+.current {
+  font-family: "VT323", monospace;
+  font-size: clamp(2rem, 9vw, 2.6rem);
+  color: var(--display-text);
+  line-height: 1.1;
+  word-break: break-all;
+}
+
+.message {
+  min-height: 1.4em;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--error-color);
+}
+
+.keypad {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.numerals {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.numerals[hidden] {
+  display: none;
+}
+
+.key-zero {
+  grid-column: span 3;
+}
+
+#numeralsRoman {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+#numeralsRoman .key-zero {
+  grid-column: auto;
+}
+
+.controls,
+.operators {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.operators {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.key {
+  border: none;
+  border-radius: 12px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: clamp(1rem, 4vw, 1.3rem);
+  padding: 14px 6px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.05s ease, filter 0.1s ease;
+}
+
+.key:active {
+  transform: translateY(2px);
+  filter: brightness(0.95);
+}
+
+.key-num {
+  background: var(--btn-num-bg);
+  color: var(--btn-num-text);
+  box-shadow: 0 4px 0 var(--btn-num-shadow);
+}
+
+.key-op {
+  background: var(--btn-op-bg);
+  color: var(--btn-op-text);
+  box-shadow: 0 4px 0 var(--btn-op-shadow);
+}
+
+.key-clear {
+  background: var(--btn-clear-bg);
+  color: var(--btn-clear-text);
+  box-shadow: 0 4px 0 var(--btn-clear-shadow);
+}
+
+.key-eq {
+  background: var(--btn-eq-bg);
+  color: var(--btn-eq-text);
+  box-shadow: 0 4px 0 var(--btn-eq-shadow);
+  padding: 16px 6px;
+}
+
+.key.reject {
+  animation: shake 0.2s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+.hint {
+  font-size: 0.8rem;
+  color: var(--page-text);
+  opacity: 0.7;
+  text-align: center;
+  margin: 0;
+}
+
+@media (min-width: 480px) {
+  .app {
+    max-width: 460px;
+  }
+}
